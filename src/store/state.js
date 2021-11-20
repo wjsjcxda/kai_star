@@ -5,4 +5,5 @@ export default {
 	address:{},  //地址相关信息
 	foodtypes:[], //食品分类数组
 	shops:[],   //商家数组
+	userInfo:{},//用户信息
 }

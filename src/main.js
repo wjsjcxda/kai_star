@@ -5,6 +5,12 @@ import App from './App'
 import router from './router/index.js'
 //引入Vuex
 import store from './store/index.js'
+//引入Button
+import {Button} from 'mint-ui'
+//引入mock
+import './mock/mockServer' //加载mockServer即可
+//注册全局组件标签
+Vue.component(Button.name,Button) //<mt-button>
 //关闭生产提示
 Vue.config.productionTip = false
 
