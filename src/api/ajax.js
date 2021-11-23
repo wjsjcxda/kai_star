@@ -11,7 +11,7 @@ export default function ajax(url, data = {}, type = 'GET') {
 				let dataStr = '' //数据拼接字符串
 				Object.keys(data).forEach(key => {
 					// encodeURIComponent
-					dataStr += key + '=' + data[key] + '&'
+					dataStr += key + '=' + encodeURIComponent(data[key]) + '&'
 				})
 				if (dataStr !== '') {
 					dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
