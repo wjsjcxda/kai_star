@@ -1,19 +1,31 @@
 <template>
 	<section class="order">
 		<HeaderTop title='订单列表'></HeaderTop>
-		<section class="order_no_login">
+		<section class="order_no_login" v-if="!userInfo._id">
 			<img src="./images/person.png">
 			<h3>登录后查看外卖订单</h3>
-			<button>立即登陆</button>
+			<h3>登录后查看外卖订单</h3>
+			<h3>登录后查看外卖订单</h3>
+			<h3>登录后查看外卖订单</h3>
+			<router-link to='/login' class="button">马上登陆</router-link>
+		</section>
+		<section class="order_no_login" v-else>
+			<img src="./images/person.png">
+			<h3>你暂时还没有下单o(╥﹏╥)o</h3>
+			<router-link to='/msite' class="button">返回首页下单</router-link>
 		</section>
 	</section>
 </template>
 
 <script>
+	import {mapState} from 'vuex'
 	import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 	export default {
 		name:'Order',
-		components:{HeaderTop}
+		components:{HeaderTop},
+		computed:{
+			...mapState(['userInfo']),
+		}
 	}
 </script>
 
@@ -33,7 +45,7 @@
 	      padding 10px 0
 	      font-size 17px
 	      color #6a6a6a
-	    >button
+	    >.button
 	      display inline-block
 	      background #02a774
 	      font-size 14px

@@ -2,12 +2,19 @@
 	<section class="msite">
 		<!--首页头部-->
 		<HeaderTop :title='address.name'>
-			<span class="header_search" slot='search'>
+			
+			<router-link class="header_search" slot='search' to="./search">
 				<i class="iconfont icon-sousuo"></i>
-			</span>
-			<span class="header_login" slot='login'>
-				<span class="header_login_text">登录|注册</span>
-			</span>
+			</router-link>
+			<router-link class="header_login" slot='login' :to="userInfo._id ? '/userinfo' : '/login'">
+				<span class="header_login_text" v-if="!userInfo._id">
+					登录|注册
+				</span>
+				<span class="header_login_text" v-else>
+					<i class="iconfont icon-geren"></i>
+				</span>	
+			</router-link>
+			
 		</HeaderTop>
 		<!--首页导航-->
 		<nav class="msite_nav">
@@ -58,7 +65,7 @@
 			
 		},
 		computed:{
-			...mapState(['address','foodtypes']),
+			...mapState(['address','foodtypes','userInfo']),
 			//根据foodtypes一维数组生成一个2维数组，小数组中的元素个数最大是8
 			foodTypesArr(){
 				const {foodtypes} = this
